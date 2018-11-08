@@ -33,7 +33,7 @@ class Product {
 		length++;
 	}
 
-	public Product getProduct(int getProductAt) {
+	public Product getProductAt(int getProductAt) {
 		return products[getProductAt];
 	}
 
@@ -117,8 +117,8 @@ public class Menu {
 	public void viewMenu() {
 		System.out.println("id\tName\t\tprice\tAmount");
 		for (int i = 0; i < product.length; i++) {
-			System.out.println(i + 1 + ".\t" + product.getProduct(i).name + "\t" + product.getProduct(i).price + "	"
-					+ product.getProduct(i).amount);
+			System.out.println(i + 1 + ".\t" + product.getProductAt(i).name + "\t" + product.getProductAt(i).price + "	"
+					+ product.getProductAt(i).amount);
 		}
 		System.out.println("-----------------------------------------------");
 		setTransaction();
@@ -137,7 +137,7 @@ public class Menu {
 			System.out.print("How many do you want? : ");
 			amount = next.nextInt();
 
-			if (transaction.addProductToTransaction(product.getProduct(num_product), amount)) {
+			if (transaction.addProductToTransaction(product.getProductAt(num_product), amount)) {
 
 				System.out.print("1 To Finish Transaction 0 To Continue.");
 
