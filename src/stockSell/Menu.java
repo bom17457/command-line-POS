@@ -65,7 +65,6 @@ class Transaction {
 		if (product.amount < amount) {
 			return false;
 		} else {
-			
 			Transaction transaction = new Transaction();
 			transaction.product = product;
 			transaction.BuyAmount = amount;
@@ -75,8 +74,6 @@ class Transaction {
 			return true;
 		}
 	}
-	
-	
 
 	public Transaction getTransactionAt(int getTransactionAt) {
 		return transactions[getTransactionAt];
@@ -102,7 +99,7 @@ public class Menu {
 	Scanner next = new Scanner(System.in);
 
 	Menu() {
-		
+
 		product.createProduct("Orange Juice", 20, 20);
 		product.createProduct("Apple Juice", 10, 20);
 		product.createProduct("Grape Juice", 15, 20);
@@ -123,7 +120,7 @@ public class Menu {
 			System.out.println(i + 1 + ".\t" + product.getProduct(i).name + "\t" + product.getProduct(i).price + "	"
 					+ product.getProduct(i).amount);
 		}
-		System.out.println("-----------------------------------------");
+		System.out.println("-----------------------------------------------");
 		setTransaction();
 	}
 
@@ -135,19 +132,28 @@ public class Menu {
 		transaction = new Transaction(100);
 		while (runloop) {
 			System.out.print("Select some juice : ");
+
 			num_product = next.nextInt() - 1;
+
 			System.out.print("How many do you want? : ");
 			amount = next.nextInt();
+
 			if (transaction.addProductToTransaction(product.getProduct(num_product), amount)) {
+
 				System.out.print("1 To Finish Transaction 0 To Continue.");
+
 				command = next.nextInt();
+
 				if (command == 1) {
 					runloop = false;
-					System.out.println("\n\n\n---------------Transaction---------------");
+
+					System.out.println("\n\n\n------------------Transaction------------------");
 					viewTransaction();
-					System.out.println("-----------------------------------------");
+
+					System.out.println("-----------------------------------------------");
 					setInventory();
-					System.out.println("-----------------------------------------");
+
+					System.out.println("-----------------------------------------------");
 				}
 			} else {
 				System.out.println("cargo not enough.");
@@ -155,14 +161,18 @@ public class Menu {
 		}
 	}
 
-	public void viewTransaction() {		
-		
+	public void viewTransaction() {
+
 		System.out.println("  \tProduct\t\tAmount*price\tTotal");
+
 		for (int i = 0; i < transaction.length; i++) {
+
 			System.out.println(i + 1 + ".\t" + transaction.getTransactionAt(i).product.name + "\t"
 					+ transaction.getTransactionAt(i).BuyAmount + "x" + transaction.getTransactionAt(i).product.price
-					+ "\t\t" + transaction.getTransactionAt(i).BuyAmount * transaction.getTransactionAt(i).product.price);
+					+ "\t\t"
+					+ transaction.getTransactionAt(i).BuyAmount * transaction.getTransactionAt(i).product.price);
 		}
+
 		System.out.println("Total : " + transaction.getTotalPrice(transaction));
 	}
 
