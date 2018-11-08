@@ -83,9 +83,9 @@ class Transaction {
 		return transactions;
 	}
 
-	public float getTotalPrice(Transaction transactions) {
+	public float getTotalPrice() {
 
-		for (int i = 0; i < transactions.length; i++) {
+		for (int i = 0; i < this.length; i++) {
 			this.total_price += getTransactionAt(i).product.price * getTransactionAt(i).BuyAmount;
 		}
 		return this.total_price;
@@ -173,7 +173,7 @@ public class Menu {
 					+ transaction.getTransactionAt(i).BuyAmount * transaction.getTransactionAt(i).product.price);
 		}
 
-		System.out.println("Total : " + transaction.getTotalPrice(transaction));
+		System.out.println("Total : " + transaction.getTotalPrice());
 	}
 
 	public void setInventory() {
