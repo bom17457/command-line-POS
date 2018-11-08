@@ -115,7 +115,7 @@ public class Menu {
 
 	public void viewMenu() {
 		for (int i = 0; i < product.length; i++) {
-			System.out.println(i+1+". "+product.getProduct(i).name + "" + product.getProduct(i).price + "	"
+			System.out.println(i + 1 + ". " + product.getProduct(i).name + "" + product.getProduct(i).price + "	"
 					+ product.getProduct(i).amount);
 		}
 		System.out.println("-----------------------------------------");
@@ -129,13 +129,12 @@ public class Menu {
 		boolean runloop = true;
 		transaction = new Transaction(100);
 		while (runloop) {
-			System.out.print("รายการอาหาร : ");
-			num_product = next.nextInt()-1;
-			System.out.print("จำนวน : ");
+			System.out.print("Select some juice : ");
 			num_product = next.nextInt() - 1;
+			System.out.print("How many do you want? : ");
 			amount = next.nextInt();
 			if (transaction.addProductToTransaction(product.getProduct(num_product), amount)) {
-				System.out.print("คิดเงินกด 1 ทำรายการต่อกด 0 :");
+				System.out.print("1 To Finish Transaction 0 To Continue.");
 				command = next.nextInt();
 				if (command == 1) {
 					runloop = false;
@@ -145,25 +144,25 @@ public class Menu {
 					System.out.println("-----------------------------------------");
 				}
 			} else {
-				System.out.println("สินค้าไม่พอจำหน่าย : ");
+				System.out.println("cargo not enough.");
 			}
 		}
 	}
 
 	public void viewTransaction() {
 		for (int i = 0; i < transaction.length; i++) {
-			System.out.println(i+1+". "+transaction.getTransaction(i).product.name + " "
+			System.out.println(i + 1 + ". " + transaction.getTransaction(i).product.name + " "
 					+ transaction.getTransaction(i).BuyAmount + "x" + transaction.getTransaction(i).product.price
 					+ "	" + transaction.getTransaction(i).BuyAmount * transaction.getTransaction(i).product.price);
 		}
-		System.out.println("ราคารวม : " + transaction.getTotalPrice(transaction));
+		System.out.println("Total : " + transaction.getTotalPrice(transaction));
 	}
 
 	public void setInventory() {
 		for (int i = 0; i < transaction.length; i++) {
 			transaction.getTransaction(i).product.amount -= transaction.getTransaction(i).BuyAmount;
 		}
-		
+
 		transaction = null;
 		viewMenu();
 	}
