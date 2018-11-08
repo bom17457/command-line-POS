@@ -129,7 +129,6 @@ public class Menu {
 		int amount;
 		int command;
 		boolean runloop = true;
-		transaction = new Transaction(100);
 		while (runloop) {
 			System.out.print("Select some juice : ");
 
@@ -181,7 +180,7 @@ public class Menu {
 			transaction.getTransactionAt(i).product.amount -= transaction.getTransactionAt(i).BuyAmount;
 		}
 
-		transaction = null;
+		transaction = new Transaction(100);
 		viewMenu();
 	}
 }
