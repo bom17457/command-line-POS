@@ -132,6 +132,7 @@ public class Menu {
 			System.out.print("รายการอาหาร : ");
 			num_product = next.nextInt()-1;
 			System.out.print("จำนวน : ");
+			num_product = next.nextInt() - 1;
 			amount = next.nextInt();
 			if (transaction.addProductToTransaction(product.getProduct(num_product), amount)) {
 				System.out.print("คิดเงินกด 1 ทำรายการต่อกด 0 :");
