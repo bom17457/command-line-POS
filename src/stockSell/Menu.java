@@ -65,6 +65,7 @@ class Transaction {
 		if (product.amount < amount) {
 			return false;
 		} else {
+			
 			Transaction transaction = new Transaction();
 			transaction.product = product;
 			transaction.BuyAmount = amount;
@@ -74,8 +75,10 @@ class Transaction {
 			return true;
 		}
 	}
+	
+	
 
-	public Transaction getTransaction(int getTransactionAt) {
+	public Transaction getTransactionAt(int getTransactionAt) {
 		return transactions[getTransactionAt];
 	}
 
@@ -86,7 +89,7 @@ class Transaction {
 	public float getTotalPrice(Transaction transactions) {
 
 		for (int i = 0; i < transactions.length; i++) {
-			this.total_price += getTransaction(i).product.price * getTransaction(i).BuyAmount;
+			this.total_price += getTransactionAt(i).product.price * getTransactionAt(i).BuyAmount;
 		}
 		return this.total_price;
 	}
@@ -99,6 +102,7 @@ public class Menu {
 	Scanner next = new Scanner(System.in);
 
 	Menu() {
+		
 		product.createProduct("Orange Juice", 20, 20);
 		product.createProduct("Apple Juice", 10, 20);
 		product.createProduct("Grape Juice", 15, 20);
@@ -114,8 +118,9 @@ public class Menu {
 	}
 
 	public void viewMenu() {
+		System.out.println("id\tName\t\tprice\tAmount");
 		for (int i = 0; i < product.length; i++) {
-			System.out.println(i + 1 + ". " + product.getProduct(i).name + "" + product.getProduct(i).price + "	"
+			System.out.println(i + 1 + ".\t" + product.getProduct(i).name + "\t" + product.getProduct(i).price + "	"
 					+ product.getProduct(i).amount);
 		}
 		System.out.println("-----------------------------------------");
@@ -138,6 +143,7 @@ public class Menu {
 				command = next.nextInt();
 				if (command == 1) {
 					runloop = false;
+					System.out.println("\n\n\n---------------Transaction---------------");
 					viewTransaction();
 					System.out.println("-----------------------------------------");
 					setInventory();
@@ -149,18 +155,20 @@ public class Menu {
 		}
 	}
 
-	public void viewTransaction() {
+	public void viewTransaction() {		
+		
+		System.out.println("  \tProduct\t\tAmount*price\tTotal");
 		for (int i = 0; i < transaction.length; i++) {
-			System.out.println(i + 1 + ". " + transaction.getTransaction(i).product.name + " "
-					+ transaction.getTransaction(i).BuyAmount + "x" + transaction.getTransaction(i).product.price
-					+ "	" + transaction.getTransaction(i).BuyAmount * transaction.getTransaction(i).product.price);
+			System.out.println(i + 1 + ".\t" + transaction.getTransactionAt(i).product.name + "\t"
+					+ transaction.getTransactionAt(i).BuyAmount + "x" + transaction.getTransactionAt(i).product.price
+					+ "\t\t" + transaction.getTransactionAt(i).BuyAmount * transaction.getTransactionAt(i).product.price);
 		}
 		System.out.println("Total : " + transaction.getTotalPrice(transaction));
 	}
 
 	public void setInventory() {
 		for (int i = 0; i < transaction.length; i++) {
-			transaction.getTransaction(i).product.amount -= transaction.getTransaction(i).BuyAmount;
+			transaction.getTransactionAt(i).product.amount -= transaction.getTransactionAt(i).BuyAmount;
 		}
 
 		transaction = null;
