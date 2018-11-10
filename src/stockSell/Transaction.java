@@ -11,9 +11,11 @@ public class Transaction {
 	Scanner getKey = new Scanner(System.in);
 
 	/**
+	 * 
 	 * method นี้จะเรียกว่า Constructor จะถูกเรียกใช้เมื่อ object ถูกสร้าง
 	 * เราเลยนำมาใช้ในการ กำหนดค่าเริ่มต้น ตัวอย่างนี้จะเป็นการ สร้างเมนู
 	 * และกำหนดค่าต่าง ๆ ให้กับเมนู
+	 * 
 	 */
 	Transaction() {
 		product.createProduct("Orange Juice", 20, 20); // ใส่ ชื่อ ราคา และ จำนวน ให้กับพารามิเตอร์
@@ -23,8 +25,13 @@ public class Transaction {
 		product.createProduct("Tomato Juice", 15, 20); // ใส่ ชื่อ ราคา และ จำนวน ให้กับพารามิเตอร์
 		product.createProduct("Avocado Juice", 15, 20); // ใส่ ชื่อ ราคา และ จำนวน ให้กับพารามิเตอร์
 
+		
+		
 		product.createProduct("T-shirt", 230, new Option(100).createOptionArray(new Option().createOption("Orange", 0, 5),
-				new Option().createOption("Black", 5, 5), new Option().createOption("gray", 10, 5)));
+				new Option().createOption("Black", 5, 5), new Option().createOption("gray", 10, 5))); //เป็นการสร้าง product แบบมี option ให้เลือก
+		
+		
+		
 		viewMenu();// เรียกให้ method viewMenu() เริ่มทำงาน
 	}
 
