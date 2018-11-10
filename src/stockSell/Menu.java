@@ -130,7 +130,7 @@ public class Menu {
 		int command;
 		boolean runloop = true;
 		while (runloop) {
-			System.out.print("Select some juice : ");
+			System.out.print("Select juice : ");
 
 			num_product = next.nextInt() - 1;
 
