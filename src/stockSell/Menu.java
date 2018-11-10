@@ -37,7 +37,7 @@ class Product {
 		return products[getProductAt];
 	}
 
-	public Product[] getProductToArray() {
+	public Product[] toArray() {
 		return products;
 	}
 }
@@ -134,7 +134,7 @@ public class Menu {
 
 			num_product = next.nextInt() - 1;
 
-			System.out.print("How many do you want? : ");
+			System.out.print("How many dso you want? : ");
 			amount = next.nextInt();
 
 			if (transaction.addProductToTransaction(product.getProductAt(num_product), amount)) {
