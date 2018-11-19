@@ -1,7 +1,10 @@
 package stockSell;
 
 public class Product {
-
+	/*
+		class นี้จะเกี่ยวกับการเก็บข้อมูลที่เกี่ยวกับสินค้า เช่น ชื่อ จำนวน หรือ ราคา ของสินค้านั้น ๆ และยังสามารถทำการตัดสต็อกโดยใช้ 
+		method updateInventory
+	*/
 	public String name = ""; // สร้าง name ไว้เก็บชื่อ
 	public float price = 0.0f;// สร้าง price ไว้เก็บราคา
 	public int amount = 0;// สร้าง amount ไว้เก็บจำนวนสินค้า
@@ -45,7 +48,10 @@ public class Product {
 
 		length++;
 	}
-
+	/**
+	*
+	*
+	*/
 	public void createProduct(String name, float price, Option option) {
 		Product product = new Product();
 		product.name = name;
