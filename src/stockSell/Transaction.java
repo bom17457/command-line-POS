@@ -27,8 +27,8 @@ public class Transaction {
 
 		
 		
-		product.createProduct("T-shirt", 230, new Option(100).createOptionArray(new Option().createOption("Orange", 0, 5),
-				new Option().createOption("Black", 5, 5), new Option().createOption("gray", 10, 5))); //เป็นการสร้าง product แบบมี option ให้เลือก
+		/*product.createProduct("T-shirt", 230, new Option(100).createOptionArray(new Option().createOption("Orange", 0, 5),
+				new Option().createOption("Black", 5, 5), new Option().createOption("gray", 10, 5))); //เป็นการสร้าง product แบบมี option ให้เลือก*/
 		
 		
 		
@@ -45,10 +45,10 @@ public class Transaction {
 			System.out.println(i + 1 + ".\t" + product.getProductAt(i).name + "\t\t" + product.getProductAt(i).price
 					+ "	" + product.getProductAt(i).amount);
 			
-			for(int x=0;product.getProductAt(i).hasOption&&(x<product.getProductAt(i).getOption().length);x++) {
+			/*for(int x=0;product.getProductAt(i).hasOption&&(x<product.getProductAt(i).getOption().length);x++) {
 				System.out.println("\t-"+product.getProductAt(i).getOption().getOptionAt(x).name+
 											"\t"+product.getProductAt(i).getOption().getOptionAt(x).addValue);
-			}
+			}*/
 		}
 		System.out.println("-----------------------------------------------");
 		setReceipt();
